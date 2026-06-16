@@ -1,65 +1,100 @@
-# contract
+# Orxu Contracts
 
-Write validators in the `validators` folder, and supporting functions in the `lib` folder using `.ak` as a file extension.
+Smart contract repository for the Orxu ecosystem built with Aiken.
 
-```aiken
-validator my_first_validator {
-  spend(_datum: Option<Data>, _redeemer: Data, _output_reference: Data, _context: Data) {
-    True
-  }
-}
+## Overview
+
+This repository contains on-chain Cardano smart contracts powering the Orxu ecosystem.
+
+Current and planned modules include:
+
+* Token minting and burning policies
+* Treasury management
+* Rewards distribution
+* Governance mechanisms
+* Vesting contracts
+* Staking integrations
+* Access control validators
+
+All contracts are implemented in Aiken and compiled to Plutus-compatible scripts for deployment on the Cardano blockchain.
+
+## Project Structure
+
+```text
+.
+├── validators/     # On-chain validators and minting policies
+├── lib/            # Shared libraries and utility functions
+├── env/            # Network-specific configuration
+├── aiken.toml      # Project configuration
+└── README.md
 ```
 
-## Building
+## Requirements
+
+* Aiken
+* Cardano tooling (optional for deployment)
+* Git
+
+Verify installation:
+
+```sh
+aiken --version
+```
+
+## Development
+
+Build all contracts:
 
 ```sh
 aiken build
 ```
 
-## Configuring
-
-**aiken.toml**
-```toml
-[config.default]
-network_id = 41
-```
-
-Or, alternatively, write conditional environment modules under `env`.
-
-## Testing
-
-You can write tests in any module using the `test` keyword. For example:
-
-```aiken
-use config
-
-test foo() {
-  config.network_id + 1 == 42
-}
-```
-
-To run all tests, simply do:
+Run tests:
 
 ```sh
 aiken check
 ```
 
-To run only tests matching the string `foo`, do:
+Run a specific test module:
 
 ```sh
-aiken check -m foo
+aiken check -m <module_name>
 ```
 
-## Documentation
-
-If you're writing a library, you might want to generate an HTML documentation for it.
-
-Use:
+Generate documentation:
 
 ```sh
 aiken docs
 ```
 
-## Resources
+## Configuration
 
-Find more on the [Aiken's user manual](https://aiken-lang.org).
+Network configuration can be defined in `aiken.toml`:
+
+```toml
+[config.default]
+network_id = 1
+```
+
+Or through environment-specific modules inside the `env/` directory.
+
+## Security
+
+Security is a primary concern for all contracts in this repository.
+
+Before deployment:
+
+* Review all validator logic
+* Execute comprehensive test coverage
+* Validate treasury permissions
+* Audit minting policies
+* Verify upgrade and governance procedures
+
+## License
+
+MIT License
+
+## Author
+
+Orxu
+
