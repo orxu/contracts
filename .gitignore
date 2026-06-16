@@ -1,0 +1,31 @@
+# Aiken
+artifacts/
+build/
+docs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Direnv
+.direnv/
+
+# Nix
+result
+result-*
